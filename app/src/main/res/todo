@@ -1,0 +1,12 @@
+2월6일
+프로젝트 시작
+사용할 것으로 생각되는 라이브러리들 gradle에 의존성 추가
+스플래시 액티비티 구현, 메인 액티비티 ui 구현시작
+레트로핏 클라이언트 설정
+
+2월7일
+메인 액티비티 ui 완성
+Retrofit 인터페이스 : (getRecipesByCategory, getRecipesByFoodName)메서드 생성
+API DataClass 생성
+api 모드에 따라 apiRequest 코드들을 각각의 클래스로 나눠서 구현할 예정
+
