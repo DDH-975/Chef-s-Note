@@ -1,8 +1,5 @@
 package com.project.foodproject.recyclerView;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
 public class RecyclerDataModel {
     private String url_foodImage;
     private String tv_foodName;

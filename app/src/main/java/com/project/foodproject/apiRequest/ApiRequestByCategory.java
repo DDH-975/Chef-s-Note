@@ -5,9 +5,13 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.project.foodproject.ApiService;
 import com.project.foodproject.DataClass;
+import com.project.foodproject.recyclerView.RecyclerDataModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,10 +25,15 @@ public class ApiRequestByCategory {
     private String endIdx;
     private String category;
     private ApiService apiService;
+    private ApiCallbackByCategory callback;
+
+    public interface ApiCallbackByCategory {
+        void onDataReceived(List<RecyclerDataModel> data);
+    }
 
 
     public ApiRequestByCategory(String apiKey, String serviceId, String dataType, String startIdx,
-                                String endIdx, String category, ApiService apiService) {
+                                String endIdx, String category, ApiService apiService, ApiCallbackByCategory callBack) {
         this.ApiKey = apiKey;
         this.serviceId = serviceId;
         this.dataType = dataType;
@@ -32,6 +41,8 @@ public class ApiRequestByCategory {
         this.endIdx = endIdx;
         this.category = category;
         this.apiService = apiService;
+        this.callback = callBack;
+        Log.i("콜백 및 api 요청 순서 테스트","6");
     }
 
     public void requestByCategory() {
@@ -43,7 +54,13 @@ public class ApiRequestByCategory {
                     DataClass dataClass = response.body();
 
                     if (dataClass != null) {
+                        Log.i("콜백 및 api 요청 순서 테스트","7");
+                        List<RecyclerDataModel> dataModels = new ArrayList<>();
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
+                            Log.i("콜백 및 api 요청 순서 테스트","8");
+                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM());
+                            Log.i("콜백 및 api 요청 순서 테스트","9");
+                            dataModels.add(dataModel);
                             try {
                                 // row 객체를 JSON 형태로 변환
                                 JSONObject jsonObject = new JSONObject(new Gson().toJson(row));
@@ -75,6 +92,10 @@ public class ApiRequestByCategory {
                             }
                         }
 
+                        //콜백 메서드 실행
+                        Log.i("콜백 및 api 요청 순서 테스트","10");
+                        callback.onDataReceived(dataModels);
+
                     } else {
                         Log.w("onResponse", "데이터가 null입니다.");
                     }
@@ -83,7 +104,6 @@ public class ApiRequestByCategory {
                 }
 
             }
-
 
             @Override
             public void onFailure(Call<DataClass> call, Throwable t) {

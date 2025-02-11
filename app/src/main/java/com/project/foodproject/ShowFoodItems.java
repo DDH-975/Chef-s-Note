@@ -20,6 +20,7 @@ import com.project.foodproject.recyclerView.RecyclerAdapter;
 import com.project.foodproject.recyclerView.RecyclerDataModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Retrofit;
 
@@ -67,20 +68,36 @@ public class ShowFoodItems extends AppCompatActivity {
 
 
         if (apiMode.equals("category")) {
+            Log.i("콜백 및 api 요청 순서 테스트","1");
             ApiRequestByCategory requestByCategory = new ApiRequestByCategory(ApiKey, serviceId, dataType,
-                    startIdx, endIdx, data, apiService);
+                    startIdx, endIdx, data, apiService, new ApiRequestByCategory.ApiCallbackByCategory() {
+                @Override
+                public void onDataReceived(List<RecyclerDataModel> data) {
+                    Log.i("콜백 및 api 요청 순서 테스트","3");
+                    recyclerDataModels.clear();
+                    Log.i("콜백 및 api 요청 순서 테스트","4");
+                    recyclerDataModels.addAll(data);
+                    Log.i("콜백 및 api 요청 순서 테스트","5");
+                    recyclerAdapter.notifyDataSetChanged();
+                }
+            });
+            Log.i("콜백 및 api 요청 순서 테스트","2");
             requestByCategory.requestByCategory();
+
         } else if (apiMode.equals("foodname")) {
             ApiRequestByFoodName requestByFoodName = new ApiRequestByFoodName(ApiKey, serviceId, dataType,
-                    startIdx, endIdx, data, apiService);
+                    startIdx, endIdx, data, apiService, new ApiRequestByFoodName.ApiCallbackByFoodName() {
+                @Override
+                public void onDataReceived(List<RecyclerDataModel> dataModelList) {
+                    recyclerDataModels.clear();
+                    recyclerDataModels.addAll(dataModelList);
+                    recyclerAdapter.notifyDataSetChanged();
+                }
+            });
             requestByFoodName.requestByFoodName();
         }
 
-//        for(DataClass.Row row : dataClass.getCOOKRCP01().getRow()){
-//            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(),row.getRCP_NM());
-//            recyclerDataModels.add(0,dataModel);
-//            recyclerAdapter.notifyDataSetChanged();
-//        }
+
 
 
     }

@@ -9,12 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.project.foodproject.R;
 
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Viewholder> {
     private ArrayList<RecyclerDataModel> dataModels;
+
 
     public RecyclerAdapter(ArrayList<RecyclerDataModel> dataModels){
         this.dataModels = dataModels;
@@ -36,7 +38,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Viewho
 
         holder.tv_foodName.setText(foodName);
 
-
+        Glide.with(holder.itemView.getContext())
+                .load(imgUrl)
+                .into(holder.img_foodImage);
 
 
     }
