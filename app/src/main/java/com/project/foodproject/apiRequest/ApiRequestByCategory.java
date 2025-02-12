@@ -5,7 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.project.foodproject.ApiService;
 import com.project.foodproject.DataClass;
-import com.project.foodproject.recyclerView.RecyclerDataModel;
+import com.project.foodproject.recyclerView_Dish_Itmes.RecyclerDataModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,10 +57,7 @@ public class ApiRequestByCategory {
                         Log.i("콜백 및 api 요청 순서 테스트","7");
                         List<RecyclerDataModel> dataModels = new ArrayList<>();
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
-                            Log.i("콜백 및 api 요청 순서 테스트","8");
-                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM());
-                            Log.i("콜백 및 api 요청 순서 테스트","9");
-                            dataModels.add(dataModel);
+
                             try {
                                 // row 객체를 JSON 형태로 변환
                                 JSONObject jsonObject = new JSONObject(new Gson().toJson(row));
@@ -90,6 +87,13 @@ public class ApiRequestByCategory {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+
+                            Log.i("콜백 및 api 요청 순서 테스트","8");
+                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(),row.getRCP_PARTS_DTLS(),
+                                    row.getManualList(),row.getManualImgList());
+                            Log.i("콜백 및 api 요청 순서 테스트","9");
+                            dataModels.add(dataModel);
+
                         }
 
                         //콜백 메서드 실행

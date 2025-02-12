@@ -10,3 +10,13 @@ Retrofit 인터페이스 : (getRecipesByCategory, getRecipesByFoodName)메서드
 API DataClass 생성
 api 모드에 따라 apiRequest 코드들을 각각의 클래스로 나눠서 구현할 예정
 
+2월11일
+api 모드에 따라 각각의 클래스(ApiRequestByCategory,ApiRequestByFoodName) 생성 및 apiRequest 메서드 생성완료 ->
+    정상적으로 api 요청 및 데이터 클래스에 저장이 되는 것 확인
+
+각 모드를 통해 요청한 음식들 아이템을 출력 하는 리사이클러 뷰 생성 및 출력 완료
+    ※ 비동기적 api요청에 따른 리사이클러 뷰 데이터 모델에 데이터가 전달되지 않는 문제점 Callback함수를 이용하여 해결
+
+음식 레시피 보기 버튼을 누르면 음식의 레시피를 출력해주는 레이아웃 생성 예정
+
+

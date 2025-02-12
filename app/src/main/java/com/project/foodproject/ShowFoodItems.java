@@ -3,7 +3,6 @@ package com.project.foodproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.foodproject.apiRequest.ApiRequestByCategory;
 import com.project.foodproject.apiRequest.ApiRequestByFoodName;
-import com.project.foodproject.recyclerView.RecyclerAdapter;
-import com.project.foodproject.recyclerView.RecyclerDataModel;
+import com.project.foodproject.recyclerView_Dish_Itmes.RecyclerAdapter;
+import com.project.foodproject.recyclerView_Dish_Itmes.RecyclerDataModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,6 @@ public class ShowFoodItems extends AppCompatActivity {
     private ArrayList<RecyclerDataModel> recyclerDataModels;
     private RecyclerAdapter recyclerAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private DataClass dataClass ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

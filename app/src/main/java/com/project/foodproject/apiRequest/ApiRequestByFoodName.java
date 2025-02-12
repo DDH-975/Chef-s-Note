@@ -5,7 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.project.foodproject.ApiService;
 import com.project.foodproject.DataClass;
-import com.project.foodproject.recyclerView.RecyclerDataModel;
+import com.project.foodproject.recyclerView_Dish_Itmes.RecyclerDataModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +41,6 @@ public class ApiRequestByFoodName {
         this.foodName = foodName;
         this.apiService = apiService;
         this.callback = callback;
-
     }
 
     public void requestByFoodName() {
@@ -54,8 +53,6 @@ public class ApiRequestByFoodName {
                     if (dataClass != null) {
                         List<RecyclerDataModel> dataModels = new ArrayList<>();
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
-                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM());
-                            dataModels.add(dataModel);
                             try {
                                 JSONObject jsonObject = new JSONObject(new Gson().toJson(row));
                                 Log.d("jsonObject", jsonObject.toString());
@@ -81,6 +78,11 @@ public class ApiRequestByFoodName {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+
+
+                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(),row.getRCP_PARTS_DTLS(),
+                                    row.getManualList(),row.getManualImgList());
+                            dataModels.add(dataModel);
                         }
                         callback.onDataReceived(dataModels);
                     } else {

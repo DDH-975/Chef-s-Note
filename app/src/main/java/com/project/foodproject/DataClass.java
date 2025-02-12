@@ -91,8 +91,8 @@ public class DataClass {
         private String MANUAL_IMG19;
         private String MANUAL_IMG20;
 
-        private List<String> ManualList = new ArrayList<>(); //메뉴얼 리스트
-        private List<String> ManualImgList = new ArrayList<>(); // 메뉴얼 이미지 리스트
+        private ArrayList<String> ManualList = new ArrayList<>(); //메뉴얼 리스트
+        private ArrayList<String> ManualImgList = new ArrayList<>(); // 메뉴얼 이미지 리스트
 
         public String getRCP_PARTS_DTLS() {
             return RCP_PARTS_DTLS;
@@ -126,19 +126,19 @@ public class DataClass {
             this.RCP_PAT2 = RCP_PAT2;
         }
 
-        public List<String> getManualList() {
+        public  ArrayList<String> getManualList() {
             return ManualList;
         }
 
-        public void setManualList(List<String> manualList) {
+        public void setManualList(ArrayList<String> manualList) {
             ManualList = manualList;
         }
 
-        public List<String> getManualImgList() {
+        public ArrayList<String> getManualImgList() {
             return ManualImgList;
         }
 
-        public void setManualImgList(List<String> manualImgList) {
+        public void setManualImgList(ArrayList<String> manualImgList) {
             ManualImgList = manualImgList;
         }
 
