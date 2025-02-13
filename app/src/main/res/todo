@@ -1,16 +1,16 @@
-2월6일
+2월 6일
 프로젝트 시작
 사용할 것으로 생각되는 라이브러리들 gradle에 의존성 추가
 스플래시 액티비티 구현, 메인 액티비티 ui 구현시작
 레트로핏 클라이언트 설정
 
-2월7일
+2월 7일
 메인 액티비티 ui 완성
 Retrofit 인터페이스 : (getRecipesByCategory, getRecipesByFoodName)메서드 생성
 API DataClass 생성
 api 모드에 따라 apiRequest 코드들을 각각의 클래스로 나눠서 구현할 예정
 
-2월11일
+2월 11일
 api 모드에 따라 각각의 클래스(ApiRequestByCategory,ApiRequestByFoodName) 생성 및 apiRequest 메서드 생성완료 ->
     정상적으로 api 요청 및 데이터 클래스에 저장이 되는 것 확인
 
@@ -20,8 +20,22 @@ api 모드에 따라 각각의 클래스(ApiRequestByCategory,ApiRequestByFoodNa
 음식 레시피 보기 버튼을 누르면 음식의 레시피를 출력해주는 레이아웃 생성 예정
 
 
-2월12일
+2월 12일
 각 음식 아이템에서 레시피보기 버튼을 누르면 음식레시피 및 음식 재료, 음식명을 출력하는 기능 추가
 즐겨찾기 기능 구현 할 예정
+
+
+2월 13일
+레시피 보기 버튼 옆 즐겨찾기 기능을 위한 checkbox 추가
+checkbox(true) -> roomDB에 해당 레시피의 음식명 추가
+checkbox(false) -> roomDB에 해당 레시피의 음식명 삭제
+    ※ 해당 기능은 이전에 FO4 전적조회 프로젝트에서 작성했던 코드 재활용
+
+리사이클러 뷰 Dish_items화면 출력 이전 즐겨찾기에 추가 되어 있는 요리일 경우 checkBox가 체크 되어있는 상태가 되도록 설정
+RecipeDao의 isRecipeExists()메서드를 이용해 체크 후 상태 설정하도록 코드 작성 하였음
+
+roomDB에 저장된 데이터를 토대로 새로운 레이아웃에 리사이클러 뷰 형식으로 뿌려주고 레시피 버튼을 누르면 세부 레시피를 출력해주는 기능 구현 예정
+
+
 
 
