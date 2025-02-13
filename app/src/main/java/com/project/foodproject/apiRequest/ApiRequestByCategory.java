@@ -59,19 +59,14 @@ public class ApiRequestByCategory {
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
 
                             try {
-                                // row 객체를 JSON 형태로 변환
                                 JSONObject jsonObject = new JSONObject(new Gson().toJson(row));
-                                Log.d("jsonObject", jsonObject.toString());
-
-                                // MANUAL01 ~ MANUAL20, MANUAL_IMG01 ~ MANUAL_IMG20 반복 처리
                                 for (int i = 1; i <= 20; i++) {
                                     String manualKey = "MANUAL" + String.format("%02d", i);
                                     String manualImgKey = "MANUAL_IMG" + String.format("%02d", i);
 
                                     String manual = jsonObject.optString(manualKey);
-                                    String manualImg = jsonObject.optString(manualImgKey); // 매뉴얼 이미지
+                                    String manualImg = jsonObject.optString(manualImgKey);
 
-                                    // null 체크 및 빈 문자열 체크
                                     if (manual != null && !manual.isEmpty()) {
                                         row.addManual(manual);
                                     }
@@ -79,10 +74,6 @@ public class ApiRequestByCategory {
                                         row.addManualImg(manualImg);
                                     }
                                 }
-
-                                // 매뉴얼 리스트와 이미지 리스트 로그 출력
-                                Log.d("RecipeManuals", row.getManualList().toString());
-                                Log.d("RecipeImages", row.getManualImgList().toString());
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -96,7 +87,6 @@ public class ApiRequestByCategory {
 
                         }
 
-                        //콜백 메서드 실행
                         Log.i("콜백 및 api 요청 순서 테스트", "10");
                         callback.onDataReceived(dataModels);
 

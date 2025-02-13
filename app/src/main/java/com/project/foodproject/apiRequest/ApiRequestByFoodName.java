@@ -55,7 +55,6 @@ public class ApiRequestByFoodName {
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
                             try {
                                 JSONObject jsonObject = new JSONObject(new Gson().toJson(row));
-                                Log.d("jsonObject", jsonObject.toString());
                                 for (int i = 1; i <= 20; i++) {
                                     String manualKey = "MANUAL" + String.format("%02d", i);
                                     String manualImgKey = "MANUAL_IMG" + String.format("%02d", i);
@@ -71,9 +70,6 @@ public class ApiRequestByFoodName {
                                         row.addManualImg(manualImg);
                                     }
                                 }
-
-                                Log.d("RecipeManuals", row.getManualList().toString());
-                                Log.d("RecipeImages", row.getManualImgList().toString());
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
