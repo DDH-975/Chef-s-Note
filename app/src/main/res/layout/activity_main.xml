@@ -146,7 +146,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/side_dish" />
+                    app:srcCompat="@drawable/side" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_side_dish"
