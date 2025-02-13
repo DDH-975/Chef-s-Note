@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         btn_dessert = (Button) findViewById(R.id.btn_dessert);
         btn_searchFood = (ImageButton) findViewById(R.id.btn_searchFood);
         et_searchFood = (EditText) findViewById(R.id.et_searchFood);
+        btn_favorites = (ImageButton) findViewById(R.id.btn_favorites);
 
         String apiModeCategory = "category";
         String apiModeFoodName = "foodname";
@@ -98,6 +99,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        Intent intent2 = new Intent(MainActivity.this, FavoriteRecipes.class);
+        btn_favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent2);
+            }
+        });
 
     }
 }
