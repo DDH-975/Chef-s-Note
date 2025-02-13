@@ -32,7 +32,7 @@ public class ApiRequestByFoodName {
     }
 
     public ApiRequestByFoodName(String apiKey, String serviceId, String dataType, String startIdx,
-                                String endIdx, String foodName, ApiService apiService,ApiCallbackByFoodName callback) {
+                                String endIdx, String foodName, ApiService apiService, ApiCallbackByFoodName callback) {
         this.ApiKey = apiKey;
         this.serviceId = serviceId;
         this.dataType = dataType;
@@ -80,8 +80,8 @@ public class ApiRequestByFoodName {
                             }
 
 
-                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(),row.getRCP_PARTS_DTLS(),
-                                    row.getManualList(),row.getManualImgList());
+                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(), row.getRCP_PARTS_DTLS(),
+                                    row.getManualList(), row.getManualImgList());
                             dataModels.add(dataModel);
                         }
                         callback.onDataReceived(dataModels);

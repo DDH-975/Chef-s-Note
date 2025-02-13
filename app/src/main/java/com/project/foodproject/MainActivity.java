@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private Intent intent;
 
 
-    public void setDataIntent(String apiMode, String putDataAtIntent){
-        intent.putExtra("data",putDataAtIntent);
-        intent.putExtra("apiMode",apiMode);
+    public void setDataIntent(String apiMode, String putDataAtIntent) {
+        intent.putExtra("data", putDataAtIntent);
+        intent.putExtra("apiMode", apiMode);
         startActivity(intent);
     }
 
@@ -56,28 +56,28 @@ public class MainActivity extends AppCompatActivity {
         btn_Rice_Dishes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDataIntent(apiModeCategory,"밥");
+                setDataIntent(apiModeCategory, "밥");
             }
         });
 
         btn_soup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDataIntent(apiModeCategory,"국");
+                setDataIntent(apiModeCategory, "국");
             }
         });
 
         btn_side_dish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDataIntent(apiModeCategory,"반찬");
+                setDataIntent(apiModeCategory, "반찬");
             }
         });
 
         btn_dessert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDataIntent(apiModeCategory,"후식");
+                setDataIntent(apiModeCategory, "후식");
             }
         });
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         btn_high_end_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDataIntent(apiModeCategory,"일품");
+                setDataIntent(apiModeCategory, "일품");
             }
         });
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String str = et_searchFood.getText().toString();
                 String noSpacesStr = str.replaceAll("\\s", "");
-                setDataIntent(apiModeFoodName,noSpacesStr);
+                setDataIntent(apiModeFoodName, noSpacesStr);
             }
         });
 

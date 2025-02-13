@@ -42,7 +42,7 @@ public class ApiRequestByCategory {
         this.category = category;
         this.apiService = apiService;
         this.callback = callBack;
-        Log.i("콜백 및 api 요청 순서 테스트","6");
+        Log.i("콜백 및 api 요청 순서 테스트", "6");
     }
 
     public void requestByCategory() {
@@ -54,7 +54,7 @@ public class ApiRequestByCategory {
                     DataClass dataClass = response.body();
 
                     if (dataClass != null) {
-                        Log.i("콜백 및 api 요청 순서 테스트","7");
+                        Log.i("콜백 및 api 요청 순서 테스트", "7");
                         List<RecyclerDataModel> dataModels = new ArrayList<>();
                         for (DataClass.Row row : dataClass.getCOOKRCP01().getRow()) {
 
@@ -88,16 +88,16 @@ public class ApiRequestByCategory {
                                 e.printStackTrace();
                             }
 
-                            Log.i("콜백 및 api 요청 순서 테스트","8");
-                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(),row.getRCP_PARTS_DTLS(),
-                                    row.getManualList(),row.getManualImgList());
-                            Log.i("콜백 및 api 요청 순서 테스트","9");
+                            Log.i("콜백 및 api 요청 순서 테스트", "8");
+                            RecyclerDataModel dataModel = new RecyclerDataModel(row.getFoodSmailImage(), row.getRCP_NM(), row.getRCP_PARTS_DTLS(),
+                                    row.getManualList(), row.getManualImgList());
+                            Log.i("콜백 및 api 요청 순서 테스트", "9");
                             dataModels.add(dataModel);
 
                         }
 
                         //콜백 메서드 실행
-                        Log.i("콜백 및 api 요청 순서 테스트","10");
+                        Log.i("콜백 및 api 요청 순서 테스트", "10");
                         callback.onDataReceived(dataModels);
 
                     } else {

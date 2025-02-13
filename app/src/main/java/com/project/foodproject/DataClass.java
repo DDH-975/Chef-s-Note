@@ -16,7 +16,7 @@ public class DataClass {
         this.COOKRCP01 = COOKRCP01;
     }
 
-    public static class CookRcp{
+    public static class CookRcp {
         private String total_count;
         private List<Row> row;
 
@@ -37,7 +37,7 @@ public class DataClass {
         }
     }
 
-    public static class Row{
+    public static class Row {
         private String RCP_PARTS_DTLS; //재료정보
         private String RCP_WAY2; // 조리방법
         private String RCP_NM; //메뉴명
@@ -126,7 +126,7 @@ public class DataClass {
             this.RCP_PAT2 = RCP_PAT2;
         }
 
-        public  ArrayList<String> getManualList() {
+        public ArrayList<String> getManualList() {
             return ManualList;
         }
 
@@ -318,14 +318,14 @@ public class DataClass {
             return MANUAL_IMG20;
         }
 
-        public void addManual(String munual){
-            if(munual != null && !munual.isEmpty()){
+        public void addManual(String munual) {
+            if (munual != null && !munual.isEmpty()) {
                 ManualList.add(munual);
             }
         }
 
-        public void addManualImg(String munualImg){
-            if(munualImg != null&& !munualImg.isEmpty()){
+        public void addManualImg(String munualImg) {
+            if (munualImg != null && !munualImg.isEmpty()) {
                 ManualImgList.add(munualImg);
             }
         }

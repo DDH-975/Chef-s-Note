@@ -18,7 +18,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Viewholder
     private ArrayList<String> ManualList;
     private ArrayList<String> ManualImgList;
 
-    public RecipeAdapter(ArrayList<String> ManualList, ArrayList<String> ManualImgList ) {
+    public RecipeAdapter(ArrayList<String> ManualList, ArrayList<String> ManualImgList) {
         this.ManualList = ManualList;
         this.ManualImgList = ManualImgList;
 
@@ -27,7 +27,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Viewholder
     @NonNull
     @Override
     public RecipeAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recipe,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recipe, parent, false);
         Viewholder holder = new Viewholder(view);
         return holder;
     }
@@ -41,20 +41,22 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Viewholder
                 load(Url).
                 into(holder.img_manualImge);
 
-        holder.tv_manual.setText(manual);
+        String formattedManual = manual.replace("\n", " ");
+
+        holder.tv_manual.setText(formattedManual);
     }
 
 
     @Override
     public int getItemCount() {
-        return  (null !=  ManualList ?  ManualList.size() : 0);
+        return (null != ManualList ? ManualList.size() : 0);
     }
-
 
 
     public class Viewholder extends RecyclerView.ViewHolder {
         ImageView img_manualImge;
         TextView tv_manual;
+
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             img_manualImge = (ImageView) itemView.findViewById(R.id.img_manualImge);

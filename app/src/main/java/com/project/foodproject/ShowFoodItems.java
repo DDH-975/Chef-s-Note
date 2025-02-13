@@ -56,7 +56,7 @@ public class ShowFoodItems extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -66,20 +66,20 @@ public class ShowFoodItems extends AppCompatActivity {
 
 
         if (apiMode.equals("category")) {
-            Log.i("콜백 및 api 요청 순서 테스트","1");
+            Log.i("콜백 및 api 요청 순서 테스트", "1");
             ApiRequestByCategory requestByCategory = new ApiRequestByCategory(ApiKey, serviceId, dataType,
                     startIdx, endIdx, data, apiService, new ApiRequestByCategory.ApiCallbackByCategory() {
                 @Override
                 public void onDataReceived(List<RecyclerDataModel> data) {
-                    Log.i("콜백 및 api 요청 순서 테스트","3");
+                    Log.i("콜백 및 api 요청 순서 테스트", "3");
                     recyclerDataModels.clear();
-                    Log.i("콜백 및 api 요청 순서 테스트","4");
+                    Log.i("콜백 및 api 요청 순서 테스트", "4");
                     recyclerDataModels.addAll(data);
-                    Log.i("콜백 및 api 요청 순서 테스트","5");
+                    Log.i("콜백 및 api 요청 순서 테스트", "5");
                     recyclerAdapter.notifyDataSetChanged();
                 }
             });
-            Log.i("콜백 및 api 요청 순서 테스트","2");
+            Log.i("콜백 및 api 요청 순서 테스트", "2");
             requestByCategory.requestByCategory();
 
         } else if (apiMode.equals("foodname")) {
@@ -94,8 +94,6 @@ public class ShowFoodItems extends AppCompatActivity {
             });
             requestByFoodName.requestByFoodName();
         }
-
-
 
 
     }
