@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
@@ -41,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="45dp"
         android:background="@drawable/rect_border"
         android:fontFamily="@font/jua"
         android:padding="10dp"
@@ -51,4 +50,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_foodImage"
         app:layout_constraintTop_toBottomOf="@+id/tv_foodName" />
+
+    <android.widget.CheckBox
+        android:id="@+id/CB_favorites"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:background="@android:color/transparent"
+        android:button="@drawable/custom_checkbox_selector"
+        android:buttonTint="@color/star_color"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_showRecipe"
+        app:layout_constraintStart_toEndOf="@+id/btn_showRecipe"
+        app:layout_constraintTop_toTopOf="@+id/btn_showRecipe"
+        app:srcCompat="@drawable/baseline_star_border_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
