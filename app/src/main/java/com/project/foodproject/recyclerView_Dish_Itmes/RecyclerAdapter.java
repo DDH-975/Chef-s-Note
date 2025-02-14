@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,7 +84,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Viewho
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true) {
-                    handleCheckBoxChecked(dataModel, recipeDB, foodName, holder.itemView.getContext());
+                    handleCheckBoxChecked(dataModel, recipeDB, foodName,imgUrl,RCP_PARTS_DTLS,
+                            ManualList, ManualImgList, holder.itemView.getContext());
 
                 } else if (b == false) {
                     handleCheckBoxUnchecked(recipeDB, foodName, holder.itemView.getContext());
@@ -96,7 +98,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Viewho
 
     // 해당 레시피가 이미 즐겨찾기에 추가되어 있는지 확인하는 메서드
     private void checkIfFavorite(FavoriteDataModel dataModel, RecipeDB data,
-                                       String nickname, Context context, CheckBox checkBox){
+                                 String nickname, Context context, CheckBox checkBox){
         dataModel.setDishName(nickname);
         new Thread(() -> {
             if (data.recipeDao().isRecipeExists(dataModel.getDishName()) > 0) {
@@ -115,14 +117,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Viewho
             }
 
         }).start();
-
     }
 
 
     //roomDB에 즐겨찾기 레시피추가
     private void handleCheckBoxChecked(FavoriteDataModel dataModel, RecipeDB data,
-                                       String nickname, Context context) {
+                                       String nickname, String imgUrl, String RCP_PARTS_DTLS,
+                                       ArrayList<String> ManualList, ArrayList<String> ManualImgList,
+                                       Context context) {
+
         dataModel.setDishName(nickname);
+        dataModel.setUrl_foodImage(imgUrl);
+        dataModel.setRCP_PARTS_DTLS(RCP_PARTS_DTLS);
+        dataModel.setManualList(ManualList);
+        dataModel.setManualImgList(ManualImgList);
         Log.d("PlayerDataModel", "Nickname: " + dataModel.getDishName());
 
         new Thread(() -> {
