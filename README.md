@@ -55,28 +55,26 @@ public class Converters {
 ## Screenshots
 
 ### 메인화면
-<img src="video/home.gif" alt="App" width="250">
+<img src="video/home.gif" alt="App" width="225">
 
 - **밥**, **국**, **반찬**, **고급 음식**, **디저트**의 요리 카테고리를 제공합니다. <br> 또한, 원하는 음식을 검색하여 레시피를 쉽게 찾아볼 수도 있습니다.
 <br><br>
 
 ### 요리 리스트 및 레시피 화면
 <div style="display: flex; gap: 10px;">
-    <img src="screenshots/category.png" alt="category" width="200">
-    <img src="screenshots/recipe.png" alt="recipe" width="200">
+    <img src="screenshots/category.png" alt="category" width="225">
+    <img src="screenshots/recipe.png" alt="recipe" width="225">
+  <img src="video/search.gif" alt="App" width="225">
 </div>
-<br>
-<img src="video/search.gif" alt="App" width="250">
-● 레시피 검색 실행화면
 <br><br>
 
 ### 즐겨찾기 기능
-<img src="screenshots/favorites.png" alt="home" width="200">
-
+<div style="display: flex; gap: 10px;">
+    <img src="screenshots/favorites.png" alt="home" width="225">
+    <img src="video/favorites.gif" alt="App" width="225">
+</div>
 ● **즐겨찾기 기능**을 통해 마음에 드는 레시피를 빠르게 확인할 수 있습니다. <br>
 
-<img src="video/favorites.gif" alt="App" width="250">
-● 즐겨찾기 기능 실행화면
 
 
 
