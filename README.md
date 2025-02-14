@@ -73,8 +73,7 @@ public class Converters {
     <img src="screenshots/favorites.png" alt="home" width="225">
     <img src="video/favorites.gif" alt="App" width="225">
 </div>
-● **즐겨찾기 기능**을 통해 마음에 드는 레시피를 빠르게 확인할 수 있습니다. <br>
-
+● 즐겨찾기 기능을 통해 마음에 드는 레시피를 빠르게 확인할 수 있습니다. <br>
 
 
 
