@@ -4,11 +4,13 @@
 스플래시 액티비티 구현, 메인 액티비티 ui 구현시작
 레트로핏 클라이언트 설정
 
+
 2월 7일
 메인 액티비티 ui 완성
 Retrofit 인터페이스 : (getRecipesByCategory, getRecipesByFoodName)메서드 생성
 API DataClass 생성
 api 모드에 따라 apiRequest 코드들을 각각의 클래스로 나눠서 구현할 예정
+
 
 2월 11일
 api 모드에 따라 각각의 클래스(ApiRequestByCategory,ApiRequestByFoodName) 생성 및 apiRequest 메서드 생성완료 ->
@@ -37,5 +39,18 @@ RecipeDao의 isRecipeExists()메서드를 이용해 체크 후 상태 설정하�
 roomDB에 저장된 데이터를 토대로 새로운 레이아웃에 리사이클러 뷰 형식으로 뿌려주고 레시피 버튼을 누르면 세부 레시피를 출력해주는 기능 구현 예정
 
 
+2월 14일
+roomDB에 저장 후 부터는 사실상 11일과 12일에 작업한 기능 - 요리 아이템을 보여주고 버튼 누르면 레시피를 보여주는 - 과 같기 때문에
+코드를 재활용하여 작업하여 프로젝트 마지막 작업인 즐겨찾기 기능은 빠르게 구현이 되었음
+
+처음에는 DB에 음식이름만 저장 후 레시피 보기 버튼을 누르면 ApiRequestByFoodName클래스를 사용해 다시 API를 요청하고
+데이터를 다시 받을 생각을 했으나 추가 할 시점에는 이미 필요한 데이터가 다 존재 하였기에 다시 API 요청을 할 필요가 없다는걸 깨달음
+
+그래서 ArrayList -> json 문자열, json -> ArrayList로 변환해주는 Converters클래스 작성하여 db에 저장될때 자동으로 변환이
+되도록 하였음
+
+서브 스레드에서 DB에 접근하여 data를 꺼낸 뒤 메인 스레드에서 리사이클러 뷰를 생성하였음
+    ※ 해당 작업을 하면서 Fragment와 Activity에서 메인 스레드 & 서브 스레드 접근 방식이 다르단걸 배웠음
 
 
+2025년 2월 14일 식품의약품안전처 공공데이터활용서비스의 조리식품의 레시피 DB API를 사용하여 레시피를 제공해주는 프로젝트 완료
