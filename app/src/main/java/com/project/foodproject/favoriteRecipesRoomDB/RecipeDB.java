@@ -5,8 +5,12 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
-@Database(entities = {FavoriteDataModel.class}, version = 1)
+import com.project.foodproject.Converters;
+
+@Database(entities = {FavoriteDataModel.class}, version = 6)
+@TypeConverters({Converters.class})
 public abstract class RecipeDB extends RoomDatabase {
     private static RecipeDB INSTANCE;
 
